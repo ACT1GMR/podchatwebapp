@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
 module.exports = (e, argv) => {
@@ -16,7 +17,7 @@ module.exports = (e, argv) => {
           include: [
             path.resolve(__dirname, "src"),
             path.resolve(__dirname, "node_modules/podchatweb/src"),
-            path.resolve(__dirname, "node_modules/raduikit/src"),
+            path.resolve(__dirname, "node_modules/raduikit/src")
           ],
           use: {
             loader: "babel-loader"
@@ -85,11 +86,16 @@ module.exports = (e, argv) => {
       filename: "index.js",
       libraryTarget: "umd",
       library: "lib"
-    }
+    };
+    base.plugins.push(
+      new CopyWebpackPlugin([
+        {
+          from: 'styles/fonts/**/*',
+          toType: 'dir'
+        }
+      ]));
   } else {
     base.devtool = "source-map";
   }
-
-
   return base;
 };
