@@ -1,0 +1,27 @@
+html {
+  font-size: 12px;
+  font-family: $font-family,Tahoma,"DejaVu Sans",helvetica,arial,freesans,sans-serif;
+  direction: rtl;
+  background-color: #f5ddc9 !important;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+
+.Podchatbox {
+  height: calc(100vh - 20px) !important;
+  border-radius: 5px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .Podchatbox {
+    height: calc(100vh - 20px) !important;
+    border-radius: 0 !important;
+  }
+}
+
+.Podchatboxbody {
+  height: calc(100vh - 80px) !important;
+}
