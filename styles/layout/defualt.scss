@@ -8,20 +8,3 @@ html {
 body * {
   box-sizing: border-box;
 }
-
-
-.Podchatbox {
-  height: calc(100vh - 20px) !important;
-  border-radius: 5px !important;
-}
-
-@media only screen and (max-width: 1024px) {
-  .Podchatbox {
-    height: calc(100vh - 20px) !important;
-    border-radius: 0 !important;
-  }
-}
-
-.Podchatboxbody {
-  height: calc(100vh - 80px) !important;
-}
