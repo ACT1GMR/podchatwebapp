@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "podauth": "^1.0.0",
-    "podchatweb": "^0.3.2",
+    "podchatweb": "^0.3.3",
     "redux-promise-middleware": "latest",
     "redux-thunk": "latest"
   }
