@@ -92,6 +92,10 @@ module.exports = (e, argv) => {
         {
           from: 'styles/fonts/**/*',
           toType: 'dir'
+        },
+        {
+          from: 'styles/images/**/*',
+          toType: 'dir'
         }
       ]));
   } else {
