@@ -3,6 +3,7 @@ html {
   font-family: $font-family,Tahoma,"DejaVu Sans",helvetica,arial,freesans,sans-serif;
   direction: rtl;
   background-color: #f5ddc9 !important;
+  overflow: hidden;
 }
 
 body * {
