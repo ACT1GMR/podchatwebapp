@@ -2,6 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const PACKAGE = require('./package.json');
+const version = PACKAGE.version;
 
 module.exports = (e, argv) => {
   const mode = argv.mode;
@@ -83,7 +85,7 @@ module.exports = (e, argv) => {
   if (mode === "production") {
     base.output = {
       path: __dirname + "/dist",
-      filename: "index.js",
+      filename: `index-${version}.js`,
       libraryTarget: "umd",
       library: "lib"
     };
