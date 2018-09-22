@@ -2,7 +2,7 @@ import LocalizedStrings from "react-localization";
 
 let strings = new LocalizedStrings({
   fa: {
-    loadingForChat: "...در حال بارگذاری چت",
+    loadingForChat: "در حال بارگذاری چت",
   },
   it: {}
 });

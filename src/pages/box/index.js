@@ -31,7 +31,7 @@ export default class Box extends Component {
     const {token} = this.props;
     if (!token) {
       return (
-        <div className={style.Box}>
+        <div className={`${style.Box} ${style["Box--noBoxShadow"]}`}>
           <div className={style.Box__Loader}/>
           <p className={style.Box__Message}>{strings.loadingForChat}</p>
         </div>);

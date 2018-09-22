@@ -6,6 +6,11 @@
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
+.Box--noBoxShadow {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 @media only screen and (max-width: 1420px) {
   .Box {
     max-width: 1200px;
@@ -30,7 +35,7 @@
 
 .Box__Message {
   position: absolute;
-  left: calc(50% - 100px);
+  left: calc(50% - 83px);
   top: calc(50% + 48px);
   font-weight: bold;
   font-family: IRANSans, serif;
@@ -59,7 +64,7 @@
   -webkit-animation: load8 1.1s infinite linear;
   animation: load8 1.1s infinite linear;
   position: absolute;
-  left: calc(50% - 5em);
+  left: calc(50% - 3em);
   top: calc(50% - 8em);
 }
 
