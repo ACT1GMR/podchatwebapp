@@ -11,6 +11,11 @@
   border-radius: 0;
 }
 
+.Podchatbox {
+  border-radius: 3px;
+}
+
+
 @media only screen and (max-width: 1420px) {
   .Box {
     max-width: 1200px;
@@ -27,9 +32,12 @@
   .Box {
     max-width: none;
     margin: 0;
-    border-radius: 10px;
     box-shadow: none;
     height: 100%;
+  }
+
+  .Podchatbox {
+    border-radius: 0;
   }
 }
 

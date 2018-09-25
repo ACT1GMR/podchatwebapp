@@ -38,7 +38,7 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box}>
-        <PodchatJSX token={token} boxClassName={style.Podchatbox} boxBodyClassName={style.Podchatboxbody}/>
+        <PodchatJSX token={token} customClassName={style.Podchatbox}/>
       </div>
     )
   }
