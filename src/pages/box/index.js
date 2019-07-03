@@ -2,7 +2,8 @@
 import React, {Component} from "react";
 import {PodchatJSX} from "podchatweb";
 import {connect} from "react-redux";
-
+import cookies from "cookies-js";
+import packageJSON from "../../../package";
 //strings
 import strings from "../../constants/localization";
 
@@ -21,6 +22,13 @@ export default class Box extends Component {
 
   constructor(props) {
     super(props);
+    this.chatRef = React.createRef();
+    this.clearCache = false;
+    const version = cookies.get("chat-version");
+    if(packageJSON.version !== version ) {
+      this.clearCache = true;
+      cookies.set("chat-version", packageJSON.version);
+    }
   }
 
   componentDidMount() {
@@ -38,7 +46,7 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box} >
-        <PodchatJSX token={token} customClassName={style.Podchatbox}/>
+        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef}/>
       </div>
     )
   }
