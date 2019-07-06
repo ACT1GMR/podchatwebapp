@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "cookies-js": "^1.2.3",
-    "podauth": "^1.1.10",
-    "podchatweb": "^0.33.2",
+    "podauth": "^1.2.4",
+    "podchatweb": "^0.4.0",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0"
   }
