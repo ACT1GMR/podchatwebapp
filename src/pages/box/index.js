@@ -46,7 +46,7 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box} >
-        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef}/>
+        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef} originalServer/>
       </div>
     )
   }
