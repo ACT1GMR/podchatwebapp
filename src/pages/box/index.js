@@ -25,7 +25,7 @@ export default class Box extends Component {
     this.chatRef = React.createRef();
     this.clearCache = false;
     const version = cookies.get("chat-version");
-    if(packageJSON.version !== version ) {
+    if (packageJSON.version !== version) {
       this.clearCache = true;
       cookies.set("chat-version", packageJSON.version);
     }
@@ -44,9 +44,15 @@ export default class Box extends Component {
           <p className={style.Box__Message}>{strings.loadingForChat}</p>
         </div>);
     }
+    const serverConfig = {
+      socketAddress: "wss://msg.pod.land/ws",
+      platformHost: "https://api.pod.land/srv/core",
+      fileServer: "https://core.pod.land"
+    };
     return (
-      <div className={style.Box} >
-        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef} originalServer/>
+      <div className={style.Box}>
+        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef} {...serverConfig}
+                    originalServer/>
       </div>
     )
   }
