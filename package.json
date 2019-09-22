@@ -1,6 +1,6 @@
 {
   "name": "podchatwebapp",
-  "version": "0.48.0",
+  "version": "0.48.1",
   "description": "Podchatweb is a web app built by react for handling POD chating use cases",
   "main": "dist/index.js",
   "scripts": {
@@ -55,7 +55,7 @@
   "dependencies": {
     "cookies-js": "^1.2.3",
     "podauth": "^1.2.4",
-    "podchatweb": "^0.48.0",
+    "podchatweb": "^0.48.1",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0"
   }
