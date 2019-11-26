@@ -6,6 +6,7 @@ import cookies from "cookies-js";
 import packageJSON from "../../../package";
 //strings
 import strings from "../../constants/localization";
+import {serverConfig} from "../../constants/connection";
 
 //actions
 import {userGetToken} from "../../actions/userActions";
@@ -44,11 +45,6 @@ export default class Box extends Component {
           <p className={style.Box__Message}>{strings.loadingForChat}</p>
         </div>);
     }
-    const serverConfig = {
-      socketAddress: "wss://msg.pod.land/ws",
-      platformHost: "https://api.pod.land/srv/core",
-      fileServer: "https://core.pod.land"
-    };
     return (
       <div className={style.Box}>
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef} {...serverConfig}
