@@ -1,6 +1,7 @@
 // src/list/BoxScene.jss
 import React, {Component} from "react";
 import {PodchatJSX} from "podchatweb";
+import {retry} from "podauth";
 import {connect} from "react-redux";
 import cookies from "cookies-js";
 import packageJSON from "../../../package";
@@ -25,6 +26,7 @@ export default class Box extends Component {
     super(props);
     this.chatRef = React.createRef();
     this.clearCache = false;
+    this.retryHook = this.retryHook.bind(this);
     const version = cookies.get("chat-version");
     if (packageJSON.version !== version) {
       this.clearCache = true;
@@ -34,6 +36,10 @@ export default class Box extends Component {
 
   componentDidMount() {
     this.props.dispatch(userGetToken());
+  }
+
+  retryHook() {
+    return retry();
   }
 
   render() {
@@ -47,7 +53,9 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box}>
-        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox} ref={this.chatRef} {...serverConfig}
+        <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
+                    ref={this.chatRef} {...serverConfig}
+                    onRetryHook={this.retryHook}
                     originalServer/>
       </div>
     )
