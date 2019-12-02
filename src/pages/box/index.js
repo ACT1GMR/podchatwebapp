@@ -61,7 +61,7 @@ export default class Box extends Component {
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
                     ref={this.chatRef} {...serverConfig}
                     onRetryHook={this.retryHook}
-                    chatSignOutHook={this.signOutHook}
+                    onSignOutHook={this.signOutHook}
                     originalServer/>
       </div>
     )
