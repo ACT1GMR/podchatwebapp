@@ -5,7 +5,7 @@ import {auth} from "podauth";
 export const userGetToken = () => {
   return (dispatch) => {
     auth({
-      clientId: "2051121e4348af52664cf7de0bda",
+      clientId: "84994fec93b1402825b650db",
       scope: "social:write",
       onNewToken: token => {
         dispatch({
