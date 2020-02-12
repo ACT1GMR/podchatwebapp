@@ -1,5 +1,5 @@
 export const serverConfig = {
-  socketAddress: "wss://msg.pod.ir/ws",
-  platformHost: "https://api.pod.ir/srv/core",
-  fileServer: "https://core.pod.ir"
+  socketAddress: "wss://chat-sandbox.pod.ir/ws", //"wss://msg.pod.ir/ws"
+  platformHost: "https://sandbox.pod.ir:8043/srv/basic-platform", //"https://api.pod.ir/srv/core"
+  fileServer: "https://sandbox.pod.land:8443"//"https://core.pod.ir"
 };
