@@ -10,7 +10,8 @@ module.exports = (e, argv) => {
   let base = {
     devServer: {
       compress: true,
-      public: 'chat.fanapsoft.ir' // That solved it
+      public: 'chat.fanapsoft.ir', // That solved it
+      contentBase: path.join(__dirname, '/node_modules/podchatweb/dist/'),
     },
     module: {
       rules: [
