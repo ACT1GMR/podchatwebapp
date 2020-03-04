@@ -32,6 +32,9 @@ export default class Box extends Component {
     if (packageJSON.version !== version) {
       this.clearCache = true;
       cookies.set("chat-version", packageJSON.version);
+      console.log("removing old cookies");
+      cookies.remove("codeVerifier");
+      cookies.remove("refreshToken");
     }
   }
 
