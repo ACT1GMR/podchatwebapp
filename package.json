@@ -53,7 +53,7 @@
     "webpack-dev-server": "^3.4.1"
   },
   "dependencies": {
-    "cookies-js": "^1.2.3",
+    "js-cookie": "^2.2.1",
     "podauth": "^1.3.1",
     "podchatweb": "^1.4.5",
     "redux-promise-middleware": "^5.1.1",

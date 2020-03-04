@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import {PodchatJSX} from "podchatweb";
 import {retry, signOut} from "podauth";
 import {connect} from "react-redux";
-import cookies from "cookies-js";
+import Cookies from "js-cookie";
 import packageJSON from "../../../package";
 //strings
 import strings from "../../constants/localization";
@@ -28,13 +28,13 @@ export default class Box extends Component {
     this.clearCache = false;
     this.retryHook = this.retryHook.bind(this);
     this.signOutHook = this.signOutHook.bind(this);
-    const version = cookies.get("chat-version");
+    const version = Cookies.get("chat-version");
     if (packageJSON.version !== version) {
       this.clearCache = true;
-      cookies.set("chat-version", packageJSON.version);
-      console.log("removing old cookies");
-      cookies.remove("codeVerifier");
-      cookies.remove("refreshToken");
+      Cookies.set("chat-version", packageJSON.version, {expires: 365});
+      console.log("removing old Cookies");
+      Cookies.remove("codeVerifier");
+      Cookies.remove("refreshToken");
     }
   }
 
