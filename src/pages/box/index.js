@@ -1,10 +1,13 @@
 // src/list/BoxScene.jss
 import React, {Component} from "react";
+import Modal from 'react-modal';
 import {PodchatJSX} from "podchatweb";
 import {retry, signOut} from "podauth";
 import {connect} from "react-redux";
 import Cookies from "js-cookie";
 import packageJSON from "../../../package";
+import ModalUpdate from "./ModalUpdate";
+
 //strings
 import strings from "../../constants/localization";
 import {serverConfig} from "../../constants/connection";
@@ -61,6 +64,7 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box}>
+        <ModalUpdate/>
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
                     ref={this.chatRef} {...serverConfig}
                     onRetryHook={this.retryHook}
