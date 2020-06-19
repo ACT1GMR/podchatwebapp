@@ -38,16 +38,12 @@ export default class ModalUpdate extends Component {
         if (xhr.status === 200) {
           const reg = /Talk v(.+?<)/gm;
           const ver = reg.exec(xhr.response)[1].replace("<", "").trim();
-          console.log(ver);
-          if (ver === packageJSON.version) {
+          if (ver !== packageJSON.version) {
             this.setState({
               chatVersion: ver,
               modalShow: true
             });
-            console.log("tested works")
           }
-        } else {
-          console.error('Error!');
         }
       };
       xhr.open('GET', "/");
