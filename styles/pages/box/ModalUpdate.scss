@@ -1,0 +1,17 @@
+.ModalUpdate__Button {
+  border: none;
+  font: inherit;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 6px;
+}
+
+.ModalUpdate__Button--ok {
+  background-color: #aae482;
+}
+
+.ModalUpdate__Button--notOk {
+  background-color: #e2dc6c;
+}

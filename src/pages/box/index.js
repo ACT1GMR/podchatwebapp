@@ -1,10 +1,13 @@
 // src/list/BoxScene.jss
 import React, {Component} from "react";
+import Modal from 'react-modal';
 import {PodchatJSX} from "podchatweb";
 import {retry, signOut} from "podauth";
 import {connect} from "react-redux";
-import cookies from "cookies-js";
+import Cookies from "js-cookie";
 import packageJSON from "../../../package";
+import ModalUpdate from "./ModalUpdate";
+
 //strings
 import strings from "../../constants/localization";
 import {serverConfig} from "../../constants/connection";
@@ -28,10 +31,13 @@ export default class Box extends Component {
     this.clearCache = false;
     this.retryHook = this.retryHook.bind(this);
     this.signOutHook = this.signOutHook.bind(this);
-    const version = cookies.get("chat-version");
+    const version = Cookies.get("chat-version");
     if (packageJSON.version !== version) {
       this.clearCache = true;
-      cookies.set("chat-version", packageJSON.version);
+      Cookies.set("chat-version", packageJSON.version, {expires: 365});
+      console.log("removing old Cookies");
+      Cookies.remove("codeVerifier");
+      Cookies.remove("refreshToken");
     }
   }
 
@@ -58,6 +64,7 @@ export default class Box extends Component {
     }
     return (
       <div className={style.Box}>
+        <ModalUpdate/>
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
                     ref={this.chatRef} {...serverConfig}
                     onRetryHook={this.retryHook}
