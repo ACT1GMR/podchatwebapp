@@ -46,7 +46,7 @@ export default class ModalUpdate extends Component {
           }
         }
       };
-      xhr.open('GET', "/");
+      xhr.open('GET', `/?_=${Date.now()}`);
       xhr.send();
     }, 900000);
   }
