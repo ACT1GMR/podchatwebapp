@@ -1,6 +1,6 @@
 // src/actions/messageActions.js
 import {USER_GET_TOKEN} from "../constants/actionTypes";
-import {auth} from "podauth";
+import {auth} from "podauth/src/auth";
 
 export const userGetToken = () => {
   return (dispatch) => {
