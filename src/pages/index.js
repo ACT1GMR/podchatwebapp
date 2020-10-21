@@ -41,10 +41,6 @@ export default class Box extends Component {
     }
   }
 
-  componentDidCatch(error, errorInfo) {
-    console.log(error)
-  }
-
   componentDidMount() {
     this.props.dispatch(userGetToken());
   }
