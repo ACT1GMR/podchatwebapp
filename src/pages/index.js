@@ -5,18 +5,18 @@ import {PodchatJSX} from "podchatweb";
 import {retry, signOut} from "podauth";
 import {connect} from "react-redux";
 import Cookies from "js-cookie";
-import packageJSON from "../../../package";
+import packageJSON from "../../package";
 import ModalUpdate from "./ModalUpdate";
 
 //strings
-import strings from "../../constants/localization";
-import {serverConfig} from "../../constants/connection";
+import strings from "../constants/localization";
+import {serverConfig} from "../constants/connection";
 
 //actions
-import {userGetToken} from "../../actions/userActions";
+import {userGetToken} from "../actions/userActions";
 
 //styling
-import style from "../../../styles/pages/box/index.scss";
+import style from "../../styles/pages/index.scss";
 
 @connect(store => {
   return {
@@ -74,3 +74,4 @@ export default class Box extends Component {
     )
   }
 }
+
