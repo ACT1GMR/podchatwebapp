@@ -48,9 +48,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.4.1"
-  },
-  "peerDependencies": {
+    "webpack-dev-server": "^3.4.1",
     "react": "16.8.0",
     "react-dom": "16.8.0"
   },
