@@ -1,24 +1,17 @@
 // src/list/BoxScene.jss
 import React, {Component} from "react";
 import Modal from 'react-modal';
-import {connect} from "react-redux";
 import classnames from "classnames";
+
 //strings
 import strings from "../constants/localization";
 import {serverConfig} from "../constants/connection";
 
-//actions
-import {userGetToken} from "../actions/userActions";
 
 //styling
 import style from "../../styles/pages/ModalUpdate.scss";
 import packageJSON from "../../package";
 
-@connect(store => {
-  return {
-    token: store.user.token
-  };
-})
 export default class ModalUpdate extends Component {
 
   constructor(props) {
