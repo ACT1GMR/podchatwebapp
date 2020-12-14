@@ -1,9 +1,7 @@
 // src/list/BoxScene.jss
 import React, {Component} from "react";
-import Modal from 'react-modal';
 import {PodchatJSX} from "podchatweb";
 import {auth, retry, signOut} from "podauth";
-import {connect} from "react-redux";
 import Cookies from "js-cookie";
 import packageJSON from "../../package";
 import ModalUpdate from "./ModalUpdate";
