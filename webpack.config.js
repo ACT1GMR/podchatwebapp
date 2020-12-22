@@ -23,7 +23,23 @@ module.exports = (e, argv) => {
             path.resolve(__dirname, "node_modules/raduikit/src")
           ],
           use: {
-            loader: "babel-loader"
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+                "@babel/preset-react"
+              ],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                [
+                  "@babel/plugin-proposal-decorators",
+                  {
+                    "legacy": true
+                  }
+                ],
+                ["@babel/plugin-proposal-class-properties", {"loose": true}]
+              ]
+            }
           }
         },
         {
@@ -42,15 +58,19 @@ module.exports = (e, argv) => {
             {
               loader: "css-loader",
               options: {
-                modules: true,
-                localIdentName: mode === "production" ? "[hash:base64:5]" : "[local]"
+                modules: {
+                  localIdentName: mode === "production" ? "[hash:base64:5]" : "[local]"
+                }
               }
             },
             {
               loader: "sass-loader",
               options: {
-                data: '@import "../variables.scss";',
-                includePaths: [__dirname, "styles"]
+                additionalData: '@import "../variables.scss";',
+                sassOptions: {
+                  includePaths: [__dirname, "styles"]
+                }
+
               }
             }
           ]
@@ -74,12 +94,7 @@ module.exports = (e, argv) => {
         filename: "[name].css",
         chunkFilename: "[id].css"
       })
-    ],
-    node: {
-      fs: "empty",
-      net: "empty",
-      tls: "empty"
-    }
+    ]
   };
 
   //IF MODE IS PRODUCTION
