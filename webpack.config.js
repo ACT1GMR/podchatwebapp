@@ -100,7 +100,7 @@ module.exports = (e, argv) => {
   //IF MODE IS PRODUCTION
   if (mode === "production") {
     base.output = {
-      path: __dirname + "/dist",
+      path: path.resolve(__dirname, "dist/"),
       filename: `index-${version}.js`,
       libraryTarget: "umd",
       library: "lib"
