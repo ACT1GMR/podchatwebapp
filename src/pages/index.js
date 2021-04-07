@@ -18,7 +18,7 @@ export default class Box extends Component {
 
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       token: null
     };
     auth({
@@ -59,6 +59,14 @@ export default class Box extends Component {
           <div className={style.Box__Loader}/>
           <p className={style.Box__Message}>{strings.loadingForChat}</p>
         </div>);
+    }
+    if (window.location.pathname.indexOf('support-module') > -1) {
+      return <PodchatJSX token={token} clearCache={this.clearCache}
+                         supportMode={8543}
+                         {...serverConfig}
+                         onRetryHook={this.retryHook}
+                         onSignOutHook={this.signOutHook}
+                         originalServer/>
     }
     return (
       <div className={style.Box}>

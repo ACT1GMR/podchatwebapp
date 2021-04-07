@@ -12,6 +12,7 @@ module.exports = (e, argv) => {
       compress: true,
       public: 'chat.fanapsoft.ir', // That solved it
       contentBase: path.join(__dirname, '/node_modules/podchatweb/dist/'),
+      historyApiFallback: true
     },
     module: {
       rules: [
