@@ -109,6 +109,10 @@ module.exports = (e, argv) => {
     base.plugins.push(
       new CopyWebpackPlugin([
         {
+          from: 'node_modules/podchatweb/dist/assets',
+          to: 'assets'
+        },
+        {
           from: 'styles/fonts/**/*',
           toType: 'dir'
         },
