@@ -22,7 +22,7 @@ export default class Box extends Component {
       token: null
     };
     auth({
-      clientId: "2051121e4348af52664cf7de0bda",
+      clientId: "88413l69cd4051a039cf115ee4e073",
       scope: "social:write",
       secure: window.location.href.indexOf('https') > -1,
       onNewToken: token => {
