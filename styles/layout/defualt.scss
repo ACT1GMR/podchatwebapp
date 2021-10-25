@@ -4,13 +4,6 @@ html {
   direction: rtl;
   background-color: #f5ddc9 !important;
   overflow: hidden;
-  zoom: 105%;
-}
-
-@media (min-width:961px)  {
-  html {
-    zoom: 110%;
-  }
 }
 
 body * {
