@@ -10,8 +10,10 @@ module.exports = (e, argv) => {
   let base = {
     devServer: {
       compress: true,
-      public: 'chat.fanapsoft.ir', // That solved it
-      contentBase: path.join(__dirname, '/node_modules/podchatweb/dist/'),
+      host: 'chat.fanapsoft.ir', // That solved it
+      static: {
+        directory: path.join(__dirname, '/node_modules/podchatweb/dist/')
+      },
       historyApiFallback: true
     },
     module: {
@@ -67,7 +69,7 @@ module.exports = (e, argv) => {
             {
               loader: "sass-loader",
               options: {
-                additionalData: '@import "../variables.scss";',
+                additionalData: '@import "./variables.scss";',
                 sassOptions: {
                   includePaths: [__dirname, "styles"]
                 }
@@ -107,20 +109,22 @@ module.exports = (e, argv) => {
       library: "lib"
     };
     base.plugins.push(
-      new CopyWebpackPlugin([
-        {
-          from: 'node_modules/podchatweb/dist/assets',
-          to: 'assets'
-        },
-        {
-          from: 'styles/fonts/**/*',
-          toType: 'dir'
-        },
-        {
-          from: 'styles/images/**/*',
-          toType: 'dir'
-        }
-      ]));
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'node_modules/podchatweb/dist/assets',
+            to: 'assets'
+          },
+          {
+            from: 'styles/fonts/**/*',
+            toType: 'dir'
+          },
+          {
+            from: 'styles/images/**/*',
+            toType: 'dir'
+          }
+        ]
+      }));
   } else {
     base.devtool = "source-map";
   }
