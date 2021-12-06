@@ -4,8 +4,6 @@ import Modal from 'react-modal';
 import classnames from "classnames";
 
 //strings
-import strings from "../constants/localization";
-import {serverConfig} from "../constants/connection";
 
 
 //styling

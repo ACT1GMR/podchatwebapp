@@ -13,6 +13,8 @@ import {serverConfig} from "../constants/connection";
 
 //styling
 import style from "../../styles/pages/index.scss";
+import ModalSwitcher from "./ModalSwitcher";
+
 
 export default class Box extends Component {
 
@@ -32,7 +34,9 @@ export default class Box extends Component {
     this.chatRef = React.createRef();
     this.clearCache = false;
     this.retryHook = this.retryHook.bind(this);
+    this.onTypingHook = this.onTypingHook.bind(this);
     this.signOutHook = this.signOutHook.bind(this);
+    this.switchSwitchModalState = this.switchSwitchModalState.bind(this);
     const version = Cookies.get("chat-version");
     if (packageJSON.version !== version) {
       this.clearCache = true;
@@ -47,12 +51,27 @@ export default class Box extends Component {
     return retry();
   }
 
+  onTypingHook(text) {
+    if (text.indexOf("switchvoila") > -1) {
+      this.switchSwitchModalState(true);
+    }
+  }
+
+  switchSwitchModalState(state) {
+    setTimeout(()=> {
+      this.setState({
+        switchModalShow: state
+      });
+    }, 100)
+
+  }
+
   signOutHook() {
     signOut();
   }
 
   render() {
-    const {token} = this.state;
+    const {token, switchModalShow} = this.state;
     if (!token) {
       return (
         <div className={`${style.Box} ${style["Box--noBoxShadow"]}`}>
@@ -63,7 +82,7 @@ export default class Box extends Component {
     if (window.location.pathname.indexOf('support-module') > -1) {
       return <PodchatJSX token={token} clearCache={this.clearCache}
                          supportMode={8543}
-                         {...serverConfig}
+                         {...serverConfig(Cookies.get("server") !== "main")}
                          onRetryHook={this.retryHook}
                          onSignOutHook={this.signOutHook}
                          originalServer/>
@@ -71,9 +90,11 @@ export default class Box extends Component {
     return (
       <div className={style.Box}>
         <ModalUpdate/>
+        <ModalSwitcher isOpen={switchModalShow} switchSwitchModalState={this.switchSwitchModalState}/>
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
                     ref={this.chatRef} {...serverConfig}
                     onRetryHook={this.retryHook}
+                    onTypingHook={this.onTypingHook}
                     onSignOutHook={this.signOutHook}
                     originalServer/>
       </div>
