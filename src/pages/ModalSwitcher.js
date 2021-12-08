@@ -63,6 +63,10 @@ export default class ModalUpdate extends Component {
       [style.ModalUpdate__Button]: true,
       [style["ModalUpdate__Button--ok"]]: true,
     });
+    const notokButtonClassNames = classnames({
+      [style.ModalUpdate__Button]: true,
+      [style["ModalUpdate__Button--notOk"]]: true,
+    });
     return (
       <Modal
         ariaHideApp={false}
@@ -71,6 +75,7 @@ export default class ModalUpdate extends Component {
         <h3>به کجا میروی ای دوست؟</h3>
         <br/>
         <button className={okButtonClassNames} onClick={this.switchServer}>{currentServer && currentServer === "main" ? "سرور تستی" : "سرور اصلی"}</button>
+        <button className={notokButtonClassNames} onClick={this.onModalClose}>هیچ جا</button>
       </Modal>
     )
   }

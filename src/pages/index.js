@@ -52,7 +52,8 @@ export default class Box extends Component {
   }
 
   onTypingHook(text) {
-    if (text.indexOf("switchvoila") > -1) {
+    const newText = text ? text.toLowerCase() : text;
+    if (newText.indexOf("switchvoila") > -1) {
       this.switchSwitchModalState(true);
     }
   }
@@ -82,7 +83,7 @@ export default class Box extends Component {
     if (window.location.pathname.indexOf('support-module') > -1) {
       return <PodchatJSX token={token} clearCache={this.clearCache}
                          supportMode={8543}
-                         {...serverConfig(Cookies.get("server") !== "main")}
+                         {...serverConfig(Cookies.get("server") === "sandbox")}
                          onRetryHook={this.retryHook}
                          onSignOutHook={this.signOutHook}
                          originalServer/>
@@ -92,7 +93,7 @@ export default class Box extends Component {
         <ModalUpdate/>
         <ModalSwitcher isOpen={switchModalShow} switchSwitchModalState={this.switchSwitchModalState}/>
         <PodchatJSX token={token} clearCache={this.clearCache} customClassName={style.Podchatbox}
-                    ref={this.chatRef} {...serverConfig}
+                    ref={this.chatRef} {...serverConfig(Cookies.get("server") === "sandbox")}
                     onRetryHook={this.retryHook}
                     onTypingHook={this.onTypingHook}
                     onSignOutHook={this.signOutHook}
