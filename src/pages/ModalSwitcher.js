@@ -74,7 +74,7 @@ export default class ModalUpdate extends Component {
         isOpen={isOpen}>
         <h3>به کجا میروی ای دوست؟</h3>
         <br/>
-        <button className={okButtonClassNames} onClick={this.switchServer}>{currentServer && currentServer === "main" ? "سرور تستی" : "سرور اصلی"}</button>
+        <button className={okButtonClassNames} onClick={this.switchServer}>{!currentServer || currentServer === "main" ? "سرور تستی" : "سرور اصلی"}</button>
         <button className={notokButtonClassNames} onClick={this.onModalClose}>هیچ جا</button>
       </Modal>
     )
