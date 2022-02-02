@@ -38,6 +38,10 @@ export default class Box extends Component {
     this.signOutHook = this.signOutHook.bind(this);
     this.switchSwitchModalState = this.switchSwitchModalState.bind(this);
     const version = Cookies.get("chat-version");
+    const server = Cookies.get("server");
+    if(!server) {
+      Cookies.set("server", "sandbox");
+    }
     if (packageJSON.version !== version) {
       this.clearCache = true;
       Cookies.set("chat-version", packageJSON.version, {expires: 365});
