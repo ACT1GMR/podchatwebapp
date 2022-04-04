@@ -1,12 +1,12 @@
 import React from "react";
-import {render} from "react-dom";
+import ReactDom from "react-dom/client";
 import "../styles/main.scss";
 import Box from "./pages";
 import ErrorBoundary from "./pages/ErrorBoundary";
 
-render(
-    <ErrorBoundary>
-      <Box/>
-    </ErrorBoundary>,
-  document.getElementById("app")
+const root = ReactDom.createRoot(document.getElementById("app"));
+root.render(
+  <ErrorBoundary>
+    <Box/>
+  </ErrorBoundary>
 );
