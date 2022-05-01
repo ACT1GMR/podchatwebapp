@@ -1,6 +1,6 @@
 {
   "name": "podchatwebapp",
-  "version": "1.36.1",
+  "version": "1.38.1",
   "description": "Podchatweb is a web app built by react for handling POD chating use cases",
   "main": "dist/index.js",
   "scripts": {
@@ -32,11 +32,11 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.4",
     "copy-webpack-plugin": "^10.2.4",
-    "json-loader": "^0.5.7",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^6.0.1",
     "randomstring": "^1.2.2",
@@ -55,7 +55,7 @@
     "classnames": "^2.3.1",
     "js-cookie": "^3.0.1",
     "podauth": "^1.3.2",
-    "podchatweb": "^1.36.1",
+    "podchatweb": "^1.38.1",
     "react-localization": "^1.0.18",
     "react-modal": "^3.14.3"
   }
